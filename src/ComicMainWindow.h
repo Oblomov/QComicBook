@@ -135,6 +135,7 @@ namespace QComicBook
 			void openBookmarksManager();
 			void toggleScrollbars(bool f);
 			void toggleTwoPages(bool f);
+			void toggleFirstPageRight(bool f);
 			void toggleFullScreen();
 			void toggleContinousView(bool f);
 			void toggleJapaneseMode(bool f);

@@ -82,6 +82,7 @@
     <addaction name="actionTogglePreserveRotation"/>
     <addaction name="separator"/>
     <addaction name="actionTwoPages"/>
+    <addaction name="actionFirstPageRight"/>
     <addaction name="actionMangaMode"/>
     <addaction name="separator"/>
     <addaction name="actionSimpleView"/>
@@ -375,6 +376,21 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+T</string>
+   </property>
+  </action>
+  <action name="actionFirstPageRight">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../data/qcomicbook.qrc">
+     <normaloff>:/icons/firstpageright.png</normaloff>:/icons/firstpageright.png</iconset>
+   </property>
+   <property name="text">
+    <string>First page right</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+1</string>
    </property>
   </action>
   <action name="actionMangaMode">

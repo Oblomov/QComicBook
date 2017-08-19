@@ -24,6 +24,7 @@
 
 #define GRP_VIEW                     "/View"
 #define OPT_TWOPAGES                 "/TwoPages"
+#define OPT_FIRSTPAGERIGHT           "/FirstPageRight"
 #define OPT_JAPANESEMODE             "/JapaneseMode"
 #define OPT_SCROLLBARS               "/Scrollbars"
 #define OPT_SMOOTHSCALING            "/SmoothScaling"
@@ -145,6 +146,7 @@ void ComicBookSettings::load()
                 m_embedpagenumbers = m_cfg->value(OPT_EMBEDPAGENUMBERS, false).toBool();
 		m_smallcursor = m_cfg->value(OPT_SMALLCURSOR, false).toBool();
 		m_twopages = m_cfg->value(OPT_TWOPAGES, false).toBool();
+		m_firstpageright = m_cfg->value(OPT_FIRSTPAGERIGHT, false).toBool();
 		m_japanese = m_cfg->value(OPT_JAPANESEMODE, false).toBool();
 		m_scrollbars = m_cfg->value(OPT_SCROLLBARS, false).toBool();
 		m_smoothscaling = m_cfg->value(OPT_SMOOTHSCALING, true).toBool();
@@ -201,6 +203,11 @@ bool ComicBookSettings::smallCursor() const
 }
 
 bool ComicBookSettings::twoPagesMode() const
+{
+    return m_twopages;
+}
+
+bool ComicBookSettings::firstPageRight() const
 {
     return m_twopages;
 }
@@ -359,6 +366,15 @@ void ComicBookSettings::twoPagesMode(bool f)
     {
         m_cfg->setValue(GRP_VIEW OPT_TWOPAGES, m_twopages = f);
         emit displaySettingsChanged(OPT_TWOPAGES);
+    }
+}
+
+void ComicBookSettings::firstPageRight(bool f)
+{
+    if (f != m_firstpageright)
+    {
+        m_cfg->setValue(GRP_VIEW OPT_FIRSTPAGERIGHT, m_firstpageright = f);
+        emit displaySettingsChanged(OPT_FIRSTPAGERIGHT);
     }
 }
 

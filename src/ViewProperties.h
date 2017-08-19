@@ -43,6 +43,8 @@ namespace QComicBook
         bool continuousScrolling() const;
         void setTwoPagesMode(bool f);
         bool twoPagesMode() const;
+        void setFirstPageRight(bool f);
+	bool firstPageRight() const;
         void setMangaMode(bool f);
         bool mangaMode() const;
         const ViewPropertiesData& getProperties() const;

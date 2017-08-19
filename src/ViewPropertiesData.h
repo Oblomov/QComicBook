@@ -28,6 +28,7 @@ namespace QComicBook
         QColor background; //background color
         bool pageNumbers;  //if page numbers should be embedded
         bool twoPagesMode;
+	bool firstPageRight;
         bool mangaMode;
         bool contScroll;
         bool smoothScaling;

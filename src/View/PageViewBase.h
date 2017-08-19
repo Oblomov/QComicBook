@@ -61,6 +61,7 @@ namespace QComicBook
             virtual void prevFrame();
 
             virtual void setTwoPagesMode(bool f);
+            virtual void setFirstPageRight(bool f);
             virtual void setMangaMode(bool f);
             virtual void setBackground(const QColor &color);
             virtual void setSmallCursor(bool f);

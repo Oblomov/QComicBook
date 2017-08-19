@@ -337,6 +337,11 @@ void PageViewBase::setTwoPagesMode(bool f)
     props.setTwoPagesMode(f);
 }
 
+void PageViewBase::setFirstPageRight(bool f)
+{
+    props.setFirstPageRight(f);
+}
+
 void PageViewBase::setMangaMode(bool f)
 {
     props.setMangaMode(f);

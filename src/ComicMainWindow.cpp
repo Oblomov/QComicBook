@@ -131,6 +131,7 @@ ComicMainWindow::ComicMainWindow(QWidget *parent): QMainWindow(parent), currpage
     connect(actionPreviousPage, SIGNAL(triggered(bool)), this, SLOT(prevPage()));   
     connect(actionMangaMode, SIGNAL(toggled(bool)), this, SLOT(toggleJapaneseMode(bool)));        
     connect(actionTwoPages, SIGNAL(toggled(bool)), this, SLOT(toggleTwoPages(bool)));
+    connect(actionFirstPageRight, SIGNAL(toggled(bool)), this, SLOT(toggleFirstPageRight(bool)));
     connect(actionNextFrame, SIGNAL(triggered(bool)), this, SLOT(nextFrame()));
     connect(actionPreviousFrame, SIGNAL(triggered(bool)), this, SLOT(prevFrame()));
 
@@ -584,6 +585,12 @@ void ComicMainWindow::toggleTwoPages(bool f)
     actionMangaMode->setDisabled(!f);
     cfg->twoPagesMode(f);
     view->setTwoPagesMode(f);
+}
+
+void ComicMainWindow::toggleFirstPageRight(bool f)
+{
+    cfg->firstPageRight(f);
+    view->setFirstPageRight(f);
 }
 
 void ComicMainWindow::toggleJapaneseMode(bool f)

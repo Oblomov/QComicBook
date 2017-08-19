@@ -33,6 +33,7 @@ void ViewProperties::setFromSettings()
     m_data.pageNumbers = cfg.embedPageNumbers();
     m_data.contScroll = cfg.continuousScrolling();
     m_data.twoPagesMode = cfg.twoPagesMode();
+    m_data.firstPageRight = cfg.firstPageRight();
     m_data.mangaMode = cfg.japaneseMode();
     m_data.background = cfg.background();
     m_data.smoothScaling = cfg.smoothScaling();
@@ -121,6 +122,21 @@ void ViewProperties::setTwoPagesMode(bool f)
 bool ViewProperties::twoPagesMode() const
 {
     return m_data.twoPagesMode;
+}
+
+void ViewProperties::setFirstPageRight(bool f)
+{
+    if (m_data.firstPageRight != f)
+    {
+        m_data.firstPageRight = f;
+        emit changed();
+    }
+}
+
+
+bool ViewProperties::firstPageRight() const
+{
+    return m_data.firstPageRight;
 }
 
 void ViewProperties::setMangaMode(bool f)
