@@ -177,6 +177,7 @@ ComicMainWindow::ComicMainWindow(QWidget *parent): QMainWindow(parent), currpage
     connect(actionJumpToPage, SIGNAL(triggered()), this, SLOT(showJumpToPage()));
     connect(actionContinuousView, SIGNAL(toggled(bool)), this, SLOT(toggleContinousView(bool)));
     actionTwoPages->setChecked(cfg->twoPagesMode());
+    actionFirstPageRight->setChecked(cfg->firstPageRight());
     actionMangaMode->setChecked(cfg->japaneseMode());
     actionContinuousView->setChecked(cfg->continuousScrolling());
 
@@ -356,6 +357,7 @@ void ComicMainWindow::setupContextMenu()
     cmenu->addAction(actionNoRotation);
     cmenu->addSeparator();
     cmenu->addAction(actionTwoPages);
+    cmenu->addAction(actionFirstPageRight);
     cmenu->addAction(actionMangaMode);
     cmenu->addSeparator();
     cmenu->addAction(actionFullscreen);
@@ -378,6 +380,7 @@ void ComicMainWindow::setupComicImageView()
     actionNextFrame->setDisabled(true);
     actionPreviousFrame->setDisabled(true);
     actionTwoPages->setDisabled(false);
+    actionFirstPageRight->setDisabled(false);
     actionMangaMode->setDisabled(!cfg->twoPagesMode());
     switch (cfg->viewType())
     {
