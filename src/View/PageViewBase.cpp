@@ -458,6 +458,8 @@ int PageViewBase::previousPage(int page) const
     if (props.twoPagesMode())
     {
         page -= 2;
+        if (page < 0)
+            page = 0;
     }
     else
     {
@@ -468,6 +470,14 @@ int PageViewBase::previousPage(int page) const
 
 int PageViewBase::roundPageNumber(int page) const
 {
+    if (props.twoPagesMode()) {
+        if (props.firstPageRight())
+            return page - !(page & 1); // round to previous odd
+        else
+            return page - (page & 1); // round to previous even
+    } else {
+        return page;
+    }
     return props.twoPagesMode() ? page - (page&1) : page;
 }
 

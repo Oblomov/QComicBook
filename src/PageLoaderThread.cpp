@@ -29,7 +29,8 @@ bool PageLoaderThread::process(const LoadRequest &req)
     int result;
     if (req.twoPages)
     {                
-        const Page page1(sink->getImage(req.pageNumber, result));
+        const Page page1(req.pageNumber >= 0 ? sink->getImage(req.pageNumber, result) :
+            Page(req.pageNumber, QImage()));
         const Page page2(sink->getImage(req.pageNumber+1, result));
         emit pageLoaded(page1, page2); //TODO errors
     }
