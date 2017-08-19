@@ -62,6 +62,7 @@ void SimplePageView::recreateComicPageImage()
         imgLabel = new ComicPageImage(this, w, h, 0, props.twoPagesMode());
         scene->addItem(imgLabel);
     }
+    firstPageRight = props.firstPageRight();
 }
 
 void SimplePageView::setNumOfPages(int n)
@@ -75,13 +76,14 @@ void SimplePageView::propsChanged()
     _DEBUG;
     if (imgLabel)
     {
-        if ((props.twoPagesMode() && !imgLabel->hasTwoPages()) || (imgLabel->hasTwoPages() && !props.twoPagesMode()))
+        if ((props.twoPagesMode() != !imgLabel->hasTwoPages()) || (props.firstPageRight() != firstPageRight))
         {
             recreateComicPageImage();
         }
         imgLabel->redrawImages();
         update();
-        gotoPage(m_currentPage);
+        firstPageRight = props.firstPageRight();
+        gotoPage(m_currentPage > 0 ? m_currentPage + firstPageRight*props.twoPagesMode() : 0);
     }
     updateSceneRect();
 }
@@ -104,6 +106,7 @@ void SimplePageView::scrollContentsBy(int dx, int dy)
 void SimplePageView::setImage(const Page &img1)
 {
     Q_ASSERT(numOfPages() > 0);
+        firstPageRight = props.firstPageRight();
     _DEBUG << img1.getNumber();
     delRequest(img1.getNumber(), false, false);
     if (img1.getNumber() == m_currentPage)
